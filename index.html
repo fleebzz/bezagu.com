@@ -1,100 +1,293 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="description" content="French developer and entrepreneur. Love all new things. Love JS / Node / web ..." />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
-  <title>Florian Bezagu</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <meta name="description" content="Engineering leader & entrepreneur. Head of Engineering with a focus on backend, platform, and safety-critical systems." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florian Bezagu · Engineering Leader</title>
+  <link href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700" rel="stylesheet">
   <style>
-    *{padding:0;margin:0;text-align:center;color:#333;font-family: 'Roboto', sans-serif;}
-    html, body {
-      height: 100%;
+    :root {
+      --ink: #0a1c33;
+      --muted: #506176;
+      --accent: #1d5cff;
+      --accent-soft: rgba(29, 92, 255, 0.12);
+      --surface: #ffffff;
+      --bg: #f5f7fb;
+      --border: rgba(10, 28, 51, 0.08);
+      --shadow: 0 24px 48px rgba(10, 28, 51, 0.14);
     }
-    body{
-      background:#FFF;
-      display: flex;
-      flex-direction: column;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Manrope', sans-serif;
     }
-    pre{width:80%;margin:2em auto;}
-    hr{width:50%;text-align:center;margin:auto}
-    .hrHeader{margin-top: 50px; margin-bottom: 80px;}
-    .hrFooter{margin-top: 100px; margin-bottom: 10px;}
-    a{text-decoration: none;font-size: 13;}
-    #header {
-      background-color: #333;
-      background-image: url('./img/texture.png');
-      background-repeat: repeat-x;
-      color: #FFF;
-      text-align: center;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+    .pill {
+      display: inline-flex;
       align-items: center;
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
     }
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+    header {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at top left, rgba(29, 92, 255, 0.2), transparent 55%),
+        radial-gradient(circle at 30% 20%, rgba(29, 92, 255, 0.18), transparent 50%),
+        linear-gradient(135deg, #0a1c33 0%, #143d85 50%, #1d5cff 100%);
+      color: #fff;
+      padding: 70px 0 80px;
     }
-    #header * {
-      color: #FFF;
+    header::after {
+      content: '';
+      position: absolute;
+      width: 120%;
+      height: 160px;
+      left: -10%;
+      bottom: -80px;
+      background: var(--bg);
+      border-radius: 50%;
+    }
+    .hero {
+      display: grid;
+      gap: 36px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: 1px;
+      font-weight: 700;
       text-transform: uppercase;
     }
-    #name {
-      margin-top: 20px;
-      font-size: 30px;
+    .hero p {
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 18px;
     }
-    #job {
-      display: inline-block;
-      margin-top: 20px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
       font-size: 14px;
-      font-weight: 300;
-      color: #FFF;
-      border-top: 2px solid #FFF;
-      border-bottom: 2px solid #FFF;
-      padding: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    #logo {
-      width: 250px;
-      border-radius: 200px;
+    .btn-primary {
+      background: #fff;
+      color: var(--ink);
     }
-    #footer {
-      padding: 30px;
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(10, 28, 51, 0.25);
+    }
+    .hero-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.4);
+    }
+    .hero-meta {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .hero-meta strong {
+      display: block;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    main {
+      padding: 30px 0 90px;
+    }
+    section {
+      margin-top: 60px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .section-title h2 {
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .grid-3 {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 24px rgba(10, 28, 51, 0.06);
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .experience {
+      display: grid;
+      gap: 20px;
+    }
+    .experience-item {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 24px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 14px 24px rgba(10, 28, 51, 0.06);
+    }
+    .experience-item h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .experience-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .experience-item ul {
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .highlight {
+      background: linear-gradient(120deg, rgba(29, 92, 255, 0.15), rgba(29, 92, 255, 0.05));
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-top: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+    }
+    .contact {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      align-items: stretch;
+    }
+    .contact-card {
+      background: var(--ink);
+      color: #fff;
+      padding: 22px;
+      border-radius: 18px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-card span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .contact-card a {
+      font-weight: 600;
+    }
+    footer {
+      padding: 40px 0 60px;
       text-align: center;
-      overflow: hidden;
-      position: relative;
+      color: var(--muted);
+      font-size: 13px;
     }
-    #footer-shadow {
-      width: 500%;
-      position: absolute;
-      top: -40px;
-      left: -100px;
-      right: -100px;
-      height: 40px;
-      box-shadow: 0px 5px 20px #333;
+    @media (max-width: 720px) {
+      header {
+        padding: 60px 0 70px;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-57141942-1', 'auto'); ga('send', 'pageview');
-  </script>
-  <script>
-    const SPLITTED_EMAIL_ADDRESS = ['f' ,'l' ,'o' ,'r' ,'i' ,'a' ,'n' ,'@' ,'b' ,'e' ,'z' ,'a' ,'g' ,'u' ,'.' ,'c' ,'o' ,'m'];
+    const SPLITTED_EMAIL_ADDRESS = ['f', 'l', 'o', 'r', 'i', 'a', 'n', '@', 'b', 'e', 'z', 'a', 'g', 'u', '.', 'c', 'o', 'm'];
     function createMailToLink(el) {
       el.href = 'mailto:' + SPLITTED_EMAIL_ADDRESS.join('');
-
       setTimeout(() => {
         el.href = '#';
       }, 100);
@@ -102,26 +295,163 @@
   </script>
 </head>
 <body>
-
-  <div id="header">
-    <img id="logo" src="./img/avatar_20220519_no-bg.png">
-    <div id="name">
-      Florian Bezagu
+  <header>
+    <div class="container hero">
+      <div>
+        <span class="pill">Engineering Leader · Head of Engineering</span>
+        <h1>Florian Bezagu</h1>
+        <p>
+          Building large-scale, real-time, and safety-critical platforms. I lead multi-disciplinary teams with a
+          focus on backend, platform, and organizational excellence.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/florianbezagu" target="_blank" rel="noreferrer">LinkedIn profile</a>
+          <a class="btn btn-secondary" href="#experience">Explore experience</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img class="hero-avatar" src="./img/avatar_20220519_no-bg.png" alt="Portrait of Florian Bezagu" />
+        <div class="hero-meta">
+          <strong>Currently</strong>
+          Head of Engineering · Backend & Platform<br />
+          Yubo · Paris, France<br />
+          Scope: backend, real-time, ML & safety systems.
+        </div>
+      </div>
     </div>
-    <div id="job">
-      Developer / Entrepreneur
-    </div>
-  </div>
-  <div id="footer">
-    <div id="footer-shadow"></div>
-    <a href="https://github.com/fleebzz" target="_blank">Github</a>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="#" onclick="createMailToLink(this)" target="_blank">Mail</a>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="http://twitter.com/fleebz" target="_blank">Twitter</a>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="http://fr.linkedin.com/in/florianbezagu" target="_blank">LinkedIn</a>
-  </div>
+  </header>
 
+  <main>
+    <section class="container" id="about">
+      <div class="section-title">
+        <h2>Leadership focus</h2>
+        <span class="pill">What I bring</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Technical strategy</h3>
+          <p>Ownership of engineering standards, org design, and long-term technical direction.</p>
+          <div class="highlight">Scaling high-throughput, safety-critical systems used by millions.</div>
+        </div>
+        <div class="card">
+          <h3>Organization design</h3>
+          <p>Mentoring leaders, strengthening autonomy, and driving cross-team collaboration.</p>
+          <div class="tag-list">
+            <span class="tag">Head of Engineering</span>
+            <span class="tag">Multi-team org</span>
+            <span class="tag">Delivery excellence</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Business impact</h3>
+          <p>Partnering with Product, Trust & Safety, Infra, Mobile, and Security to align priorities.</p>
+          <div class="tag-list">
+            <span class="tag">Safety & Trust</span>
+            <span class="tag">Realtime</span>
+            <span class="tag">Platform</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <span class="pill">Selected roles</span>
+      </div>
+      <div class="experience">
+        <article class="experience-item">
+          <h3>Head of Engineering · Backend & Platform</h3>
+          <div class="experience-meta">
+            <span>Yubo · Paris, France</span>
+            <span>September 2024 — Present</span>
+          </div>
+          <ul>
+            <li>Leading a multi-disciplinary engineering organization covering backend, real-time, ML-driven, and full-stack systems.</li>
+            <li>Driving org design, engineering standards, and long-term technical direction for the core product and safety platforms.</li>
+          </ul>
+        </article>
+        <article class="experience-item">
+          <h3>Senior Engineering Manager · Backend & Platform</h3>
+          <div class="experience-meta">
+            <span>Yubo · Paris, France</span>
+            <span>February 2023 — September 2024</span>
+          </div>
+          <ul>
+            <li>Led multiple backend teams and Engineering Managers, strengthening leadership practices and team autonomy.</li>
+            <li>Improved reliability, scalability, and delivery execution at scale across Yubo’s core systems.</li>
+          </ul>
+        </article>
+        <article class="experience-item">
+          <h3>CTO & Co-Founder</h3>
+          <div class="experience-meta">
+            <span>Weview.io · La Roche-sur-Yon, France</span>
+            <span>November 2015 — June 2020</span>
+          </div>
+          <ul>
+            <li>Owned platform architecture and technical strategy from early stage to production.</li>
+            <li>Led product development, infrastructure, and early team building.</li>
+          </ul>
+        </article>
+        <article class="experience-item">
+          <h3>Entrepreneurship & Community Leadership</h3>
+          <div class="experience-meta">
+            <span>Agile Vendée · Dayliss · Ideolys</span>
+            <span>2014 — 2024</span>
+          </div>
+          <ul>
+            <li>President of a regional tech community promoting agile practices and organizational transformation.</li>
+            <li>Co-founded SaaS products focused on scheduling, sales, inventory, and staff management.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-title">
+        <h2>Scope snapshot</h2>
+        <span class="pill">Current focus</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Engineering org</h3>
+          <p>Multi-team organization spanning backend, real-time, ML, and full-stack systems.</p>
+        </div>
+        <div class="card">
+          <h3>Product scope</h3>
+          <p>Core product, safety, and internal platforms for a global user base.</p>
+        </div>
+        <div class="card">
+          <h3>Scale</h3>
+          <p>Millions of users relying on high-availability and safety-critical infrastructure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span class="pill">Let’s connect</span>
+      </div>
+      <div class="contact">
+        <div class="contact-card">
+          <span>Location</span>
+          <strong>Saint-Nazaire (44), France</strong>
+        </div>
+        <div class="contact-card">
+          <span>Email</span>
+          <a href="#" onclick="createMailToLink(this)">florian@bezagu.com</a>
+        </div>
+        <div class="contact-card">
+          <span>LinkedIn</span>
+          <a href="https://www.linkedin.com/in/florianbezagu" target="_blank" rel="noreferrer">linkedin.com/in/florianbezagu</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Crafted with vanilla CSS · Updated to reflect my leadership & impact.
+  </footer>
 </body>
-<html>
+</html>
